@@ -1,0 +1,107 @@
+% Copyright 2019 by Jordi Inglada
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+
+\documentclass[8pt]{beamer}
+\usetheme{Cesbio}
+\setbeamertemplate{footnote}{%
+  \parindent 0em\noindent%
+  \raggedright%\raggedright
+  \usebeamercolor{footnote}\hbox to 3.5em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+\setbeamertemplate{navigation symbols}{}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{FiraSans}
+\usepackage{mathtools}
+\usepackage{ulem}
+
+% The short title appears at the bottom of every slide, the full title is only on the title page
+\title{Tests miniLUT} 
+\newcommand{\shorttitle}{branch minilut\_test}
+
+\author{J. Colin\inst{1}}% \and Jean Bombeur\inst{2} \and Igor Le Tractor\inst{3}}
+\newcommand{\shortauthor}{J. Colin} % Name to display in the footline
+\institute{\inst{1}Centre d'\'Etudes Spatiales de la Biosph\`ere, France \url{jerome.colin@cesbio.cnes.fr}\\
+%\inst{2}Université des \^Iles Sandwich, Royaume-Uni\\
+%\inst{3}Laboratoire de mécanique agricole, Moldavie
+}
+
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+{
+	\setbeamertemplate{footline}{} % Remove footline in titlepage
+	\begin{frame}
+		\vspace{.8cm}
+		\includegraphics[width=1.5cm]{logo_cesbio_transp.pdf}
+	\titlepage % Print the title page as the first slide
+	\end{frame}
+}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}
+	\frametitle{Overview}
+	\tableofcontents
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%   PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{...} 
+%------------------------------------------------
+
+%\subsection{Area of Interest} 
+%
+%\begin{frame}
+%\frametitle{Area of Interest}
+%	
+%	TODO: check DTM file, $\Delta_{altitude}$, Water fraction, etc...	
+%	
+%	\begin{columns}
+%		\begin{column}{0.5\textwidth}
+%			\begin{center}
+%				31TFJ 2018-03-14(S2B)
+%		     	\includegraphics[width=1\textwidth]{figs/20180314_S2B.jpg}
+%		     	13\% clouds
+%		    \end{center}		
+%		\end{column}
+%		\begin{column}{0.5\textwidth}
+%			\begin{center}
+%				31TFJ 2018-03-19(S2A)
+%		     	\includegraphics[width=1\textwidth]{figs/20180319_S2A.jpg}
+%		     	34\% clouds
+%		    \end{center}		
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+
+
+
+%------------------------------------------------
+%
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{References}
+%\footnotesize{
+%\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+%\bibitem[Smith, 2012]{p1} John Smith (2012)
+%\newblock Title of the publication
+%\newblock \emph{Journal Name} 12(3), 45 -- 678.
+%\end{thebibliography}
+%}
+%\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
+

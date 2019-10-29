@@ -1,0 +1,54 @@
+% Copyright 2019 by Jordi Inglada
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+
+
+\mode<presentation>
+
+\usetheme{metropolis}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\definecolor{CESBIOgreen}{RGB}{34,146,15} 
+
+\setbeamercolor{alerted text}{fg=CESBIOgreen!80!white}
+\setbeamercolor*{palette primary}{fg=CESBIOgreen!60!black,bg=white!85!CESBIOgreen}
+\setbeamercolor*{palette secondary}{fg=CESBIOgreen!70!black,bg=white!60!CESBIOgreen}
+\setbeamercolor*{palette tertiary}{bg=CESBIOgreen!80!black,fg=white!50!CESBIOgreen}
+\setbeamercolor*{palette quaternary}{fg=CESBIOgreen,bg=white!20!CESBIOgreen}
+
+\setbeamercolor*{sidebar}{fg=CESBIOgreen,bg=CESBIOgreen!75!white}
+
+\setbeamercolor*{palette sidebar primary}{fg=CESBIOgreen!10!black}
+\setbeamercolor*{palette sidebar secondary}{fg=white}
+\setbeamercolor*{palette sidebar tertiary}{fg=CESBIOgreen!50!black}
+\setbeamercolor*{palette sidebar quaternary}{fg=white!10!CESBIOgreen}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor{frametitle}{bg=white!90!CESBIOgreen}
+\setbeamercolor{frametitle right}{bg=white!60!CESBIOgreen}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=red!0,fg=}
+\setbeamercolor{block title}{fg=CESBIOgreen!60!black}
+
+\setbeamercolor{itemize item}{fg=CESBIOgreen}
+\setbeamercolor{item projected}{bg=CESBIOgreen,fg=CESBIOgreen!30!white}
+
+\usepackage{hyperref}
+\hypersetup{urlcolor=CESBIOgreen!60!black,
+linkcolor=CESBIOgreen!60!black, colorlinks=true}
+
+\setbeamercolor{caption name}{fg=CESBIOgreen!60!black}
+
+%\institute{\inst{1}\includegraphics[width=1.5cm]{logo_cesbio_transp.pdf}}
+
+\setbeamertemplate{footline}{\leavevmode\hbox{\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}  \usebeamerfont{author in head/foot}\includegraphics[width=1.5cm]{logo_cesbio_transp.pdf}~~\shortauthor   \end{beamercolorbox}   \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{}     \usebeamerfont{title in head/foot}\shorttitle   \end{beamercolorbox}   \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}\insertframenumber{} \hspace*{2ex} \end{beamercolorbox}}\vskip0pt}
+\mode
+<all>
