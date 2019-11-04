@@ -23,7 +23,7 @@
 \usepackage{ulem}
 
 % The short title appears at the bottom of every slide, the full title is only on the title page
-\title{Tests miniLUT} 
+\title{Point d'avancement MAJA du 7 novembre 2019} 
 \newcommand{\shorttitle}{branch minilut\_test}
 
 \author{J. Colin\inst{1}}% \and Jean Bombeur\inst{2} \and Igor Le Tractor\inst{3}}
@@ -46,45 +46,306 @@
 }
 
 %----------------------------------------------------------------------------------------
-\begin{frame}
-	\frametitle{Overview}
-	\tableofcontents
-\end{frame}
+%\begin{frame}
+%	\frametitle{Overview}
+%	\tableofcontents
+%\end{frame}
 
 %----------------------------------------------------------------------------------------
 %   PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
 %------------------------------------------------
-\section{...} 
+%\subsection{...} 
 %------------------------------------------------
+\begin{frame}
+\frametitle{Alta Floresta, 17 Sept. 2017}
+	
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+			\begin{center}
+				
+		     	\includegraphics[width=1\textwidth]{figs/figs_BCXX/BC20/MosaicProduit/20170917S2A.jpg}
+		     	%21LWK 2017-09-17(S2B)
+		    \end{center}		
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\begin{center}
+				\begin{itemize}
+					\item 21LWK 2017-09-17(S2B)
+					\item Simulation avec CAMS
+				\end{itemize}
+		    \end{center}		
+		\end{column}
+	\end{columns}
+\end{frame}
 
-%\subsection{Area of Interest} 
-%
-%\begin{frame}
-%\frametitle{Area of Interest}
-%	
-%	TODO: check DTM file, $\Delta_{altitude}$, Water fraction, etc...	
-%	
-%	\begin{columns}
-%		\begin{column}{0.5\textwidth}
-%			\begin{center}
-%				31TFJ 2018-03-14(S2B)
-%		     	\includegraphics[width=1\textwidth]{figs/20180314_S2B.jpg}
-%		     	13\% clouds
-%		    \end{center}		
-%		\end{column}
-%		\begin{column}{0.5\textwidth}
-%			\begin{center}
-%				31TFJ 2018-03-19(S2A)
-%		     	\includegraphics[width=1\textwidth]{figs/20180319_S2A.jpg}
-%		     	34\% clouds
-%		    \end{center}		
-%		\end{column}
-%	\end{columns}
-%\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Alta Floresta, 17 Sept. 2017}
+	\includegraphics[width=1\textwidth]{figs/figs_BCXX/BC20/log21LWK_BC20_aerosols.png}
+	Proportion significative de Black Carbon ($m_{r}=1.75, m_{i}=0.20$)
+	
+	Organic Matter avec des RH plutôt faibles ($m_{i_{RH30}}=0.009726$, $m_{i_{RH80}}=0.00486$)
+\end{frame}
 
+%------------------------------------------------
+\begin{frame}
+\frametitle{Alta Floresta, 17 Sept. 2017}
+	
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Bande 1
+		     	\includegraphics[width=1\textwidth]{figs/figs_BCXX/BC20/BC20_B1.png}
+		     	%21LWK 2017-09-17(S2B)
+		    \end{center}		
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Bande 2
+				\includegraphics[width=1\textwidth]{figs/figs_BCXX/BC20/BC20_B2.png}
+		    \end{center}		
+		\end{column}
+	\end{columns}
+	Miniluts : ajustements non monotones pour AOT > 1.5
+\end{frame}
 
+%------------------------------------------------
+\begin{frame}
+\frametitle{Deux pistes}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\textbf{Piste 1: revoir le calcul des miniluts}
+			
+			\begin{itemize}			
+			\item Dans les spécifications :
+			
+			$\rho_{surf_{(b,\rho_{toa},\tau,z)}} = \sum\limits_{M=1}^n r_{M_{n}}.\rho_{surf_{M}}(b,\rho_{toa},\tau,z)$
+			
+			Hypothèse de linéaritée, à l'évidence non vérifiée ici
+			
+			\item Test :
+			
+			Ajout d'une pondération de $\tau$ par la proportion $r_{M_{n}}$ de chaque modèle $n$ d'aérosol $M$ tel que :
+			
+			$\rho_{surf_{(b,\rho_{toa},\tau,z)}} = \sum\limits_{M=1}^n r_{M_{n}}.\rho_{surf_{M}}(b,\rho_{toa},r_{M_{n}}.\tau,z)$
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			%\begin{center}
+			\textbf{Piste 2: jouer sur l'absorption du Black Carbon}
+			\begin{itemize}
+				\item Initialement, $m_{i}=0.45$
+				\item déjà ramenée à $0.20$ dans les LUTs
+			\end{itemize}
+
+			Comparaison avec des LUTs telles que :
+			\begin{itemize}
+				\item $m_{i}=0.10$ (BC10)
+				\item $m_{i}=0.15$ (BC15)
+				\item $m_{i}=0.20$ (BC20)
+			\end{itemize}
+				
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 1}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Minilut B1 "spéc'"
+		     	\includegraphics[width=1\textwidth]{figs/figs_BCXX/BC20/BC20_B1.png}
+		    \end{center}		
+		    
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Minilut B1 "piste 1"	
+				\includegraphics[width=1\textwidth]{figs/figs_minilut/21LWK_Dbg_LUTS_170917/Piste1_B1.png}
+		    \end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 1}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Minilut B2 "spéc'"
+		     	\includegraphics[width=1\textwidth]{figs/figs_BCXX/BC20/BC20_B2.png}
+		    \end{center}		
+		    
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Minilut B2 "piste 1"	
+				\includegraphics[width=1\textwidth]{figs/figs_minilut/21LWK_Dbg_LUTS_170917/Piste1_B2.png}
+		    \end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 1}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Minilut B3 "spéc'"
+		     	\includegraphics[width=1\textwidth]{figs/figs_BCXX/BC20/BC20_B3.png}
+		    \end{center}		
+		    
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Minilut B3 "piste 1"	
+				\includegraphics[width=1\textwidth]{figs/figs_minilut/21LWK_Dbg_LUTS_170917/Piste1_B3.png}
+		    \end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 1}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Minilut B4 "spéc'"
+		     	\includegraphics[width=1\textwidth]{figs/figs_BCXX/BC20/BC20_B4.png}
+		    \end{center}		
+		    
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Minilut B4 "piste 1"	
+				\includegraphics[width=1\textwidth]{figs/figs_minilut/21LWK_Dbg_LUTS_170917/Piste1_B4.png}
+		    \end{center}
+		\end{column}
+	\end{columns}
+	\begin{itemize}
+		\item Problème réglé en apparence, car trop peu de correction atmosphérique
+		\item Sur le run Alta Floresta, le mode backward n'arrive pas à créer un composite car les épaisseurs optiques dépassent le seuil d'$AOT_{max} = 0.5$ pour toutes les dates
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Exemple sur la Crau : sortie "spéc'"}
+			\begin{center}
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_minilut/31TFJ_Ref_MosaicProduit/20190722S2A.jpg}
+		    \end{center}		
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Exemple sur la Crau : sortie "piste 1'"}
+	\begin{center}
+     	\includegraphics[width=0.75\textwidth]{figs/figs_minilut/31TFJ_Dbg_MosaicProduit/20190722S2A.jpg}
+    \end{center}		
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Exemple sur la Crau : $r_{M}$ et $RH$}
+	\includegraphics[width=1\textwidth]{figs/figs_minilut/31TFJ_Ref_LUTS_20190801/log31TFJ_201908LUT46r1_aerosols.png}
+
+	L'implémentation "piste 1"
+	\begin{itemize}
+		\item génère bien un composite sur des tuiles avec moins de matières organiques et de matières carbonnées comme à la Crau (figure ci-dessus)
+		\item mais ne résou pas le problème de départ...
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 2 : LUT avec $m_{i_{Black Carbon}} = 0.20$}
+	\begin{center}
+     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC20/MosaicProduit/20170917S2A.jpg}
+    \end{center}		
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 2 : LUT avec $m_{i_{Black Carbon}} = 0.15$}
+	\begin{center}
+     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC15/MosaicProduit/20170917S2A.jpg}
+    \end{center}		
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 2 : LUT avec $m_{i_{Black Carbon}} = 0.10$}
+	\begin{center}
+     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC10/MosaicProduit/20170917S2A.jpg}
+    \end{center}		
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 2 : LUT avec $m_{i_{Black Carbon}} = 0.20$}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+	     		\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC20/BC20_B1.png}	
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC20/BC20_B3.png}
+		    \end{center}		
+		    
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC20/BC20_B2.png}
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC20/BC20_B4.png}
+		    \end{center}				
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 2 : LUT avec $m_{i_{Black Carbon}} = 0.15$}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+	     		\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC15/BC15_B1.png}	
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC15/BC15_B3.png}
+		    \end{center}		
+		    
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC15/BC15_B2.png}
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC15/BC15_B4.png}
+		    \end{center}				
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Piste 2 : LUT avec $m_{i_{Black Carbon}} = 0.10$}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+	     		\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC10/BC10_B1.png}	
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC10/BC10_B3.png}
+		    \end{center}		
+		    
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC10/BC10_B2.png}
+		     	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC10/BC10_B4.png}
+		    \end{center}				
+		\end{column}
+	\end{columns}
+\end{frame}
 
 %------------------------------------------------
 %
