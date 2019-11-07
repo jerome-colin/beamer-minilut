@@ -22,11 +22,13 @@
 \usepackage{mathtools}
 \usepackage{ulem}
 
+\newcommand{\light}[1]{\textcolor{gray}{#1}}
+
 % The short title appears at the bottom of every slide, the full title is only on the title page
 \title{Point d'avancement MAJA du 7 novembre 2019} 
 \newcommand{\shorttitle}{branch minilut\_test}
 
-\author{J. Colin\inst{1}}% \and Jean Bombeur\inst{2} \and Igor Le Tractor\inst{3}}
+\author{J. Colin\inst{1} \and O. Hagolle\inst{1}}% \and Igor Le Tractor\inst{3}}
 \newcommand{\shortauthor}{J. Colin} % Name to display in the footline
 \institute{\inst{1}Centre d'\'Etudes Spatiales de la Biosph\`ere, France \url{jerome.colin@cesbio.cnes.fr}\\
 %\inst{2}Université des \^Iles Sandwich, Royaume-Uni\\
@@ -113,9 +115,9 @@
 
 %------------------------------------------------
 \begin{frame}
-\frametitle{Deux pistes}
+\frametitle{Piste 1}
 	\begin{columns}
-		\begin{column}{0.6\textwidth}
+		\begin{column}{0.7\textwidth}
 			\textbf{Piste 1: revoir le calcul des miniluts}
 			
 			\begin{itemize}			
@@ -132,22 +134,7 @@
 			$\rho_{surf_{(b,\rho_{toa},\tau,z)}} = \sum\limits_{M=1}^n r_{M_{n}}.\rho_{surf_{M}}(b,\rho_{toa},r_{M_{n}}.\tau,z)$
 			\end{itemize}
 		\end{column}
-		\begin{column}{0.4\textwidth}
-			%\begin{center}
-			\textbf{Piste 2: jouer sur l'absorption du Black Carbon}
-			\begin{itemize}
-				\item Initialement, $m_{i}=0.45$
-				\item déjà ramenée à $0.20$ dans les LUTs
-			\end{itemize}
-
-			Comparaison avec des LUTs telles que :
-			\begin{itemize}
-				\item $m_{i}=0.10$ (BC10)
-				\item $m_{i}=0.15$ (BC15)
-				\item $m_{i}=0.20$ (BC20)
-			\end{itemize}
-				
-		\end{column}
+		
 	\end{columns}
 \end{frame}
 
@@ -265,6 +252,33 @@
 
 %------------------------------------------------
 \begin{frame}
+\frametitle{Piste 2}
+	\begin{columns}
+		
+		\begin{column}{0.7\textwidth}
+			%\begin{center}
+			\textbf{Piste 2: jouer sur l'absorption du Black Carbon}
+			\begin{itemize}
+				\item Initialement, $m_{i}=0.45$
+				\item déjà ramenée à $0.20$ dans les LUTs
+			\end{itemize}
+
+			Comparaison avec des LUTs telles que :
+			\begin{itemize}
+				\item $m_{i_{Black Carbon}}=0.10$ (BC10)
+				\item $m_{i_{Black Carbon}}=0.15$ (BC15)
+				\item $m_{i_{Black Carbon}}=0.20$ (BC20)
+			\end{itemize}
+			
+			Toutes propriétés des autres aérosols restant inchangées
+				
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+%------------------------------------------------
+\begin{frame}
 \frametitle{Piste 2 : LUT avec $m_{i_{Black Carbon}} = 0.20$}
 	\begin{center}
      	\includegraphics[width=0.75\textwidth]{figs/figs_BCXX/BC20/MosaicProduit/20170917S2A.jpg}
@@ -350,12 +364,15 @@
 %------------------------------------------------
 %\begin{frame}
 %\frametitle{La suite...}
-%	\begin{itemize}
-%		\item Aucune des deux pistes ne répond au problème relevé sur le cas d'Alta Floresta
-%		\item 
-%	\end{itemize}
+%	\begin{columns}
+%		\begin{column}{0.7\textwidth}	
+%			\begin{itemize}
+%				\item Plafonner $m_{i_{Organic Matter}}$ à $0.006$ (en cours)
+%				\item Valider les différentes combinaisons
+%			\end{itemize}
+%		\end{column}
+%	\end{columns}
 %\end{frame}
-%
 %------------------------------------------------
 
 %\begin{frame}
